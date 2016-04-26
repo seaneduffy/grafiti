@@ -1,0 +1,13 @@
+{
+  "name": "instatag",
+  "description": "Create graffiti on any Instagram photo",
+  "main": "server.js",
+  "authors": [
+    "Sean Duffy"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/seaneduffy/instatag",
+  "dependencies": {
+    "angular": "^1.5.5"
+  }
+}
