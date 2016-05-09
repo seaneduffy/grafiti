@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  text-align: center;
+  font-family: 'Droid Sans', sans-serif; }
+
+ul {
+  padding: 0;
+  margin: 0; }
+
+li {
+  list-style: none;
+  margin: 0; }
+
+@font-face {
+  font-family: UnderAuthority;
+  src: url("/font/underauthority-webfont.eot"), url("/font/underauthority-webfont.svg") format("svg"), url("/font/underauthority-webfont.ttf") format("truetype"), url("/font/underauthority-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+header {
+  display: flex;
+  justify-content: space-between; }
+
+#title {
+  display: inline-block;
+  padding: 20px; }
+  #title h1 {
+    font-family: UnderAuthority;
+    font-size: 68px;
+    letter-spacing: 3px;
+    line-height: 68px;
+    margin: 0; }
+  #title h2 {
+    margin: 0;
+    font-size: 16px; }
+
+#userInfo {
+  padding: 20px;
+  display: inline-block;
+  margin: 20px 0;
+  width: 50%;
+  text-align: right; }
+
+#colors li {
+  width: 20px;
+  height: 20px;
+  display: inline-block; }
+
+#sizes li, #feathers li {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 2px; }
+  #sizes li div, #feathers li div {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; }
+
+#sizes li {
+  border: 1px solid transparent; }
+  #sizes li span {
+    border: 1px solid black;
+    display: block; }
+
+#feathers li {
+  width: 34px;
+  height: 32px; }
+  #feathers li span {
+    display: block;
+    width: 30px;
+    height: 30px; }
+
+.thumbs {
+  display: flex;
+  background: #E0E6EA;
+  padding: 20px;
+  height: 85px;
+  margin-bottom: 15px; }
+  .thumbs .container {
+    overflow: scroll; }
+  .thumbs ul {
+    text-align: left; }
+    .thumbs ul li {
+      display: inline-block;
+      margin-left: 20px; }
+      .thumbs ul li img {
+        width: 85px;
+        height: 85px; }
+
+#settings {
+  width: 300px;
+  float: left;
+  text-align: right; }
+  #settings > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    #settings > li li {
+      box-sizing: border-box;
+      margin: 1px; }
+      #settings > li li.selected {
+        border: 1px solid red; }
+  #settings h3 {
+    display: inline-block;
+    margin: 0; }
+  #settings ul {
+    display: inline-block; }
+
+#drawContainer {
+  min-width: 950px;
+  min-height: 650px;
+  padding: 20px; }
+
+drawimage {
+  float: right; }

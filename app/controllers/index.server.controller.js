@@ -1,11 +1,15 @@
 exports.render = function(req, res) {
-	if(req.session.lastVisit) {
-		console.log(req.session.lastVisit);
+	var tempVars = {
+		title: 'Grafiti',
+		savedImages: []
 	}
 	
-	req.session.lastVisit = new Date();
+	if(req.session && req.session.user && req.session.access_token) {
+		tempVars.user = req.session.user;
+		tempVars.access_token = req.session.access_token;
+		if(req.session.savedImages)
+			tempVars.savedImages = req.session.savedImages;
+	}
 	
-	res.render('index', {
-		title: 'Grafiti'
-	});
+	res.render('index', tempVars);
 }

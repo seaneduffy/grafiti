@@ -2,8 +2,102 @@
 <html>
 	<head>
 		<title><%= title %></title>
+		<script src="/bower_components/angular/angular.min.js"></script>
+		<script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+		<script src="/app/app.js"></script>
+		<link href="/css/grafiti.css" rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+		<% if(locals.access_token) { %>
+		<script>
+			var accessToken = '<%= access_token %>';
+		</script>
+		<% } %>
+		<% if(savedImages.length) { %>
+		<script>
+			var savedImages = [];
+		    <% savedImages.forEach(function(image){ %>
+			savedImages.push('<%= image %>');
+		    <% }) %>
+		</script>
+		<% } %>
 	</head>
-	<body>
-		
+	<body ng-app="grafiti" ng-controller="main">
+		<header>
+			<div id="title">
+				<h1>Grafiti</h1>
+				<h2>Paint your Instagram photos</h2>
+			</div>
+			<div id="userInfo">
+			<% if(locals.user) { %>
+				<span>Hello, <%= user.username %>!</span>
+				<a href="/logout">Log out</a>
+			<% } else { %>
+				<a href="/instagram">Log in with Instagram</a>
+			<% } %>
+			</div>
+		</header>
+		<% if(locals.access_token) { %>
+		<div class="thumbs">
+			<div>
+				<h3>Instagram</h3>
+				<div id="loadBtn">
+					<button ng-click="loadRecentPhotos()">Load latest photos</button>
+				</div>
+			</div>
+			<div class="container">
+				<ul style="width:{{ photos.length * 120}}px">
+					<li ng-repeat="photo in photos" ng-click="thumbClick(photo.image.src)">
+						<img ng-src="{{ photo.thumb.src }}">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<% } %>
+		<div class="thumbs">
+			<div>
+				<h3>Saved images</h3>
+				<div id="saveBtn">
+					<button ng-click="savePhoto()">Save photo</button>
+				</div>
+			</div>
+			<div class="container">
+				<ul style="width:{{ savedimages.length * 125}}px">
+					<li ng-repeat="image in savedimages" ng-click="thumbClick(image)">
+						<img ng-src="{{ image }}">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="drawContainer">
+			<ul id="settings">
+				<li>
+					<h3>Colors</h3>
+					<ul id="colors">
+						<li ng-class="{selected: color==selectedColor}" ng-repeat="color in colors" style="background:rgb({{ color }})" ng-click="setColor(color)"></li>
+					</ul>
+				</li>
+				<li>
+					<h3>Sizes</h3>
+					<ul id="sizes">
+						<li ng-class="{selected: size==selectedSize}" ng-repeat="size in sizes" ng-click="setSize(size)">
+							<div>
+								<span style="width:{{ size }}px; height:{{ size }}px; border-radius:{{ size }}px"></span>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h3>Brush type</h3>
+					<ul id="feathers">
+						<li ng-class="{selected: feather==selectedFeather}" ng-repeat="feather in feathers" ng-click="setFeather(feather)">
+							<div>
+								<span style="background: -webkit-radial-gradient(black 0%, black {{feather * 50}}%,  white 50%);"></span>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<drawimage></drawimage>
+		</div>
 	</body>
 </html>

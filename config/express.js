@@ -14,11 +14,10 @@ module.exports = function() {
 	} else if(process.env.NODE_ENV === 'production') {
 		app.use(compress());
 	}
-	
 	app.use(bodyParser.urlencoded({
 		extended: true
 	}));
-	app.use(bodyParser.json());
+	app.use(bodyParser.json({limit: '50mb'}));
 	app.use(methodOverride());
 	
 	app.use(session({
@@ -32,6 +31,9 @@ module.exports = function() {
 	
 	require('../app/routes/index.server.routes')(app);
 	require('../app/routes/instagramredirect.server.routes')(app);
+	require('../app/routes/instagramauth.server.routes')(app);
+	require('../app/routes/logout.server.routes')(app);
+	require('../app/routes/saveimage.server.routes')(app);
 	
 	app.use(express.static('./public'));
 	
