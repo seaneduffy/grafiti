@@ -2,9 +2,6 @@
 <html>
 	<head>
 		<title><%= title %></title>
-		<script src="/bower_components/angular/angular.min.js"></script>
-		<script src="/bower_components/angular-resource/angular-resource.min.js"></script>
-		<script src="/app/app.js"></script>
 		<link href="/css/grafiti.css" rel="stylesheet" type="text/css">
 		<link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 		<% if(locals.access_token) { %>
@@ -99,5 +96,8 @@
 			</ul>
 			<drawimage></drawimage>
 		</div>
+		<script src="/bower_components/angular/angular.min.js"></script>
+		<script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+		<script src="/app/app.js"></script>
 	</body>
 </html>
