@@ -12,7 +12,7 @@
 			var accessToken = '<%= access_token %>';
 		</script>
 		<% } %>
-		<% if(savedImages.length) { %>
+		<% if(typeof savedImages !== 'undefined' && savedImages.length) { %>
 		<script>
 			var savedImages = [];
 		    <% savedImages.forEach(function(image){ %>
