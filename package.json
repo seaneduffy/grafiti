@@ -1,5 +1,5 @@
 {
-  "name": "instatag",
+  "name": "grafiti",
   "version": "0.0.1",
   "description": "Create graffiti on any Instagram photo",
   "main": "server.js",
@@ -12,7 +12,9 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "compression": "^1.6.1",
-    "connect": "^3.4.1",
+    "connect": "^2.30.2",
+    "connect-mongo": "^1.1.0",
+    "cookie-session": "^2.0.0-alpha.1",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",

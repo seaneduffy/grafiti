@@ -59,7 +59,7 @@
 			</div>
 			<div class="container">
 				<ul style="width:{{ savedimages.length * 125}}px">
-					<li ng-repeat="image in savedimages" ng-click="thumbClick(image)">
+					<li ng-repeat="image in savedimages track by $index" ng-click="thumbClick(image)">
 						<img ng-src="{{ image }}">
 					</li>
 				</ul>

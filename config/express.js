@@ -4,7 +4,7 @@ var config = require('./config'),
 	compress = require('compression'),
 	bodyParser = require('body-parser'),
 	methodOverride = require('method-override'),
-	session = require('express-session');
+	session = require('cookie-session');
 	
 module.exports = function() {
 	var app = express();
@@ -24,7 +24,7 @@ module.exports = function() {
 		saveUninitialized: true,
 		resave: true,
 		secret: config.sessionSecret
-	}))
+	}));
 	
 	app.set('views', './app/views');
 	app.set('view engine', 'ejs');

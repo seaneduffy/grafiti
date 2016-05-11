@@ -1,4 +1,4 @@
 exports.render = function(req, res) {
-	req.session.destroy();
+	req.session = null;
 	res.redirect("/");
 }

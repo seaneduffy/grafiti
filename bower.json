@@ -1,5 +1,5 @@
 {
-  "name": "instatag",
+  "name": "grafiti",
   "description": "Create graffiti on any Instagram photo",
   "main": "server.js",
   "authors": [
